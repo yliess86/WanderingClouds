@@ -17,4 +17,4 @@ include_directories(vendor/include)
 
 add_executable(${PROJECT_NAME} ${VENDOR_HEADERS} ${VENDOR_SOURCES} ${INCLUDES} ${SOURCES} main.cc)
 
-target_link_libraries(${PROJECT_NAME} OpenGL::GL glfw)
+target_link_libraries(${PROJECT_NAME} OpenGL::GL glfw -lX11 -ldl)
