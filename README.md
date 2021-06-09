@@ -30,5 +30,3 @@ The file contains:
 |:------|:------------|:--------------|:------|:--------------------------|
 |Size   |0            |3 * 4          |Int32  |width x height x depth     |
 |Content|3 * 4        |Remaining Bytes|Float32|Contiguous Major Row Tensor|
-
-An example file is given in the resource folder under the texture directory `resources/textures/fbm_noise_512_8_5.dat`.
