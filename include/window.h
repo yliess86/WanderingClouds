@@ -2,9 +2,11 @@
 #define WINDOW_H
 
 #include "../vendor/include/glad/glad.h"
+#include<GLFW/glfw3.h>
+
+#include "./controller.h"
 
 #include<iostream>
-#include<GLFW/glfw3.h>
 
 class Window {
 public:

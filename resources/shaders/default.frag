@@ -38,6 +38,7 @@ uniform float     u_time;
 uniform vec2      u_resolution;
 uniform sampler2D u_noise2D;
 uniform sampler3D u_noise3D;
+uniform vec3      u_pos;
 
 // ==== NOISE
 #if(MODE != 2)
@@ -174,20 +175,14 @@ void main() {
 	vec2 a  = u_resolution.yx / u_resolution.y;
 	vec2 p  = (2.0 * v_uv - 1.0) / a;
 
-	vec3 of = vec3(
-		0.5 * sin(0.1 * u_time),
-		0.5 * cos(0.1 * u_time),
-		0.1 * u_time
-	);
-
-	vec3 af = vec3(
+	vec3 to = vec3(
 		0.3 * sin(0.1 * u_time),
 		0.1 * cos(0.3 * u_time),
 		0.3 * u_time
 	);
 	
-	vec3 ro = vec3(0.0, 0.0, -4.0) + of;
-	vec3 ta = vec3(0.0, 0.0,  0.6) + ro + af;
+	vec3 ro = u_pos;
+	vec3 ta = ro + vec3(0.0, 0.0,  0.6) + to;
 
 	mat3 ca = camera(ro, ta, 0.0);
 	vec3 rd = ca * normalize(vec3(p, 2.5));

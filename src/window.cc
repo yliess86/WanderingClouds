@@ -25,6 +25,8 @@ Window::Window(
 
 	Clear();
 	glfwSwapBuffers(m_window);
+
+	glfwSetKeyCallback(m_window, Controller::Handle);
 }
 
 Window::~Window() {

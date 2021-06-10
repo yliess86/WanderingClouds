@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 project(WanderingClouds VERSION 0.0.1)
 
 set(CMAKE_CXXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -fconcepts")
 
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
