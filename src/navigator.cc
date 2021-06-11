@@ -1,9 +1,9 @@
 #include "../include/navigator.h"
 
-void Nav::Update(const float& dt) {
+void Nav::UpdateDir() {
 	Controller& controller = Controller::Instance();
 
-	Vec3 dir = Vec3(0, 0, 0.1);
+	dir = Vec3(0, 0, 0);
 	if (controller.isPressed(Controls::UP   )) dir.y -= 1;
 	if (controller.isPressed(Controls::DOWN )) dir.y += 1;
 	if (controller.isPressed(Controls::RIGHT)) dir.x -= 1;
@@ -11,8 +11,12 @@ void Nav::Update(const float& dt) {
 
 	float mag = dir.Mag();
 	if (mag > 0) dir /= mag;
+}
 
-	transform.acc  = dir * 0.1;
-	transform.vel += transform.acc * dt;
+void Nav::Update(const float& dt) {
+	UpdateDir();
+
+ 	transform.acc  = dir * ACCELERATION;
+	transform.vel += (transform.acc - Vec3(1, 1, 0) * transform.vel * FRICTION) * dt;
 	transform.pos += transform.vel * dt;
 }

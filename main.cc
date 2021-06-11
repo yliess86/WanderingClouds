@@ -20,7 +20,7 @@ const char*        NOISE_2D_FILE = "resources/textures/blue_noise.png\0";
 const char*        NOISE_3D_FILE = "resources/textures/fbm_noise_512_8_5.dat\0";
 
 const unsigned int VERSION[]     = { 3, 3 };
-const unsigned int SIZE   []     = { 512, 512 };
+const unsigned int SIZE   []     = { 1920, 1080 };
       float        FSIZE  []     = { (float)SIZE[0], (float)SIZE[1] };
 const float        CLEAR  []     = { 0.0f, 0.0f, 0.0f, 1.0f };
 
@@ -33,7 +33,7 @@ int main() {
 	Tex2D*  noise2D = new Tex2D(NOISE_2D_FILE, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	Tex3D*  noise3D = new Tex3D(NOISE_3D_FILE, GL_TEXTURE1, GL_RED,  GL_FLOAT        );
 	Quad*   quad    = new Quad(shader);
-	Nav*    nav     = new Nav(Vec3());
+	Nav*    nav     = new Nav(Vec3(), Vec3(0, 0, 1), Vec3());
 
 	Uniform1f* u_time       = shader->GetUniform<Uniform1f>("u_time");
 	Uniform2f* u_resolution = shader->GetUniform<Uniform2f>("u_resolution");
